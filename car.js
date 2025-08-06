@@ -7,7 +7,6 @@ function createCar(config) {
         width = 200,
         height = 100,
         color = 0xff0000, // Car body color
-        cornerRadius = 10,
         cornerColor = 0x000000, // Corner color
         topSpeed = 3,
         reverseMax = 0.6,
@@ -47,7 +46,6 @@ function createCar(config) {
                 width,
                 height,
                 color,
-                cornerRadius,
                 cornerColor
             });
             
@@ -159,7 +157,6 @@ function createCar(config) {
             width,
             height,
             color,
-            cornerRadius,
             cornerColor,
             topSpeed,
             reverseMax,

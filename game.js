@@ -8,9 +8,11 @@ class CarGame extends Phaser.Scene {
     create() {
         // Particle system
         this.particles = new Particles(this);
-        // Create car instance using car-data.js
+        // Use selected car from GlobalState, default to green
+        const selectedCarKey = (window.GlobalState && GlobalState.selectedCar) ? GlobalState.selectedCar : 'green';
+        const carConfig = CAR_DATA[selectedCarKey] || CAR_DATA.green;
         this.car = createCar({
-            ...CAR_DATA.green,
+            ...carConfig,
             scene: this,
             x: 300,
             y: 350,
@@ -43,16 +45,5 @@ class CarGame extends Phaser.Scene {
     
 }
 
-const config = {
-    type: Phaser.AUTO,
-    width: 650,
-    height: 650,
-    backgroundColor: '#808080', // gray
-    scene: CarGame
-};
-
-const game = new Phaser.Game(config);
-
-// Car class import
-// Assumes car.js is loaded before this file in index.html
-// If using modules, use: import { Car } from './car.js';
+// Export CarGame for use in index.html
+window.CarGame = CarGame;

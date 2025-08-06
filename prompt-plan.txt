@@ -1,0 +1,40 @@
+Prompt for AI: Car Game Refactor & Planning
+
+Scene & State Management
+
+Refactor the project to use multiple Phaser scenes: a Main Menu scene, a Map Select scene, and a Game scene. This will improve memory efficiency and allow for clean state transitions.
+Implement a simple global state object to manage selected map, settings, and best times (persisted in localStorage).
+Map System
+
+Move map data to a separate JSON file. Update the game to load map data dynamically in the Map Select and Game scenes.
+For now, use a simple structure: an array of objects (with x, y, rotation, etc.) and two polygons for the track boundaries.
+UI Implementation
+
+Build all menus and UI using Phaser (sprites, text, buttons). No HTML overlays.
+Only mouse/touch input is needed for menu navigation.
+Settings
+
+Add a global settings menu (accessible from the main menu) with options for audio, controls, graphics, and gameplay.
+Store settings in a global object and persist to localStorage.
+Track & Collision
+
+Implement a simple, performant point-in-polygon check for track boundaries.
+Make track boundaries visible for now.
+Time Trial Logic
+
+Add a "Ready/Go" sequence before the race starts.
+Start the timer on "Go" and store/display the best time for each map in localStorage.
+Process:
+
+Make changes in small, incremental steps.
+After each step, review and adjust as needed before proceeding.
+Document code with inline comments for clarity.
+Next Steps:
+
+Refactor the code to introduce a Main Menu scene and a global state object.
+Ask the user for feedback and preferences before proceeding to the next step.
+Questions to Ask After Each Step:
+
+Does the new structure work as expected in your browser?
+Are there any features or UI elements you want to adjust before moving on?
+Do you want to see code for the next step, or make further tweaks to the current one?

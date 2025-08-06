@@ -4,15 +4,47 @@
     <meta charset="UTF-8">
     <title>Phaser Car Game</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+    <script src="global-state.js"></script>
+    <script src="main-menu.js"></script>
+    <script src="map-select.js"></script>
+    <script src="car-select.js"></script>
     <script src="particles.js"></script>
     <script src="car.js"></script>
     <script src="car-data.js"></script>
     <script src="game.js"></script>
     <style>
-        body { margin: 0; }
-        canvas { display: block; margin: 0 auto; }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+        }
+        canvas {
+            display: block;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
 </body>
+<script>
+// Set up Phaser with new scenes
+window.addEventListener('DOMContentLoaded', function() {
+    if (window.GlobalState) GlobalState.load();
+    const config = {
+        type: Phaser.AUTO,
+        width: 650,
+        height: 650,
+        backgroundColor: '#808080',
+        scene: [MainMenu, CarSelect, MapSelect, CarGame]
+    };
+    window.game = new Phaser.Game(config);
+});
+</script>
 </html>
